@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_C08DCC59-3A65-423E-A365-749F42B8BFC2" id="_647F8DED-347B-478C-AC5A-6F4AF17B1CC1" name="DMN_EA24A70A-69CA-4356-8982-41A9DC5F3F97" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+  <inputData name="Age" id="_5878F08F-571D-4429-AC43-1B4910AC5B88">
+    <variable name="Age" id="_BD0861E7-75F7-4EFE-80C8-FACC596948B7" typeRef="number" />
+  </inputData>
+  <decision name="Adult" id="_621D0D46-4AB4-4CFE-8286-D2DB97C48D7C">
+    <variable id="_BEA492BD-70DD-4794-8A3D-C0CBCBEBB7AA" typeRef="boolean" name="Adult" />
+    <informationRequirement id="_FA7A89FC-D551-478E-B0BB-DE53757EBC70">
+      <requiredInput href="#_5878F08F-571D-4429-AC43-1B4910AC5B88" />
+    </informationRequirement>
+    <literalExpression id="_85757819-B4C8-4893-B21A-22C2726F975B" typeRef="boolean" label="Adult">
+      <text>if Age &gt;= 18 then true else false</text>
+    </literalExpression>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_4EDD7C9A-0E7C-4483-A984-4EF4B5371F47" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_85757819-B4C8-4893-B21A-22C2726F975B">
+            <kie:width>557</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_76778F8B-C3A7-43D8-950E-F464D71F8BC4" dmnElementRef="_5878F08F-571D-4429-AC43-1B4910AC5B88" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="400" y="480" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_27BF41F7-2FE1-4A1D-9DC1-1250F1B39235" dmnElementRef="_621D0D46-4AB4-4CFE-8286-D2DB97C48D7C" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="400" y="260" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_73BA9D3B-471F-411C-B18C-B22495F3BEBB-AUTO-TARGET" dmnElementRef="_FA7A89FC-D551-478E-B0BB-DE53757EBC70" sourceElement="_76778F8B-C3A7-43D8-950E-F464D71F8BC4" targetElement="_27BF41F7-2FE1-4A1D-9DC1-1250F1B39235">
+        <di:waypoint x="480" y="520" />
+        <di:waypoint x="480" y="300" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
