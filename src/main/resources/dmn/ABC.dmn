@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_7E5EC490-52EF-4056-91C8-AF9499165C35" id="_61B09F15-301B-4AE8-8DB0-4EB6A4DBFBB4" name="DMN_A11E11BC-8158-4654-A400-8D92D3A1DFCA" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_7E5EC490-52EF-4056-91C8-AF9499165C35" id="_61B09F15-301B-4AE8-8DB0-4EB6A4DBFBB4" name="DMN_A11E11BC-8158-4654-A400-8D92D3A1DFCA">
   <itemDefinition id="_54D5DC82-1748-4B05-A0C6-E66A6F4DBDB0" name="tRating" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
     <typeRef>string</typeRef>
     <typeConstraint id="_0C0002AE-9FBD-4931-8B52-76E6C15C86AB" kie:constraintType="enumeration">
       <text>&quot;Gold&quot;, &quot;Silver&quot;, &quot;Standard&quot;</text>
     </typeConstraint>
   </itemDefinition>
-  <decision name="Rating" id="_5F423E3B-9974-422D-B36B-972CEE50C453">
-    <variable name="Rating" id="_CE5E8B39-8B0B-4AC9-9713-A5A4E334D6F5" typeRef="tRating" />
+  <decision name="Category" id="_5F423E3B-9974-422D-B36B-972CEE50C453">
+    <variable name="Category" id="_CE5E8B39-8B0B-4AC9-9713-A5A4E334D6F5" typeRef="tRating" />
     <informationRequirement id="_CF6C0A7C-AE89-4D01-A7BF-E0B8DA014F85">
       <requiredInput href="#_61D70A8B-A916-4ECD-9E82-73BFDA271EA8" />
     </informationRequirement>
-    <decisionTable id="_3AD5FDA2-7095-415F-8E88-9B169D4210F7" typeRef="tRating" hitPolicy="UNIQUE" label="Rating">
+    <decisionTable id="_3AD5FDA2-7095-415F-8E88-9B169D4210F7" typeRef="tRating" hitPolicy="UNIQUE" label="Category">
       <input id="_11B80087-0E95-40CC-A885-DF4C33E5DFA1">
         <inputExpression id="_969FBB85-41AD-461F-B51B-6B877D178A2F" typeRef="number">
           <text>Income</text>
         </inputExpression>
       </input>
-      <output id="_2E664661-68B9-41B7-8E34-6BD9BF1378D5" name="Output-1" typeRef="tRating" />
+      <output id="_2E664661-68B9-41B7-8E34-6BD9BF1378D5" name="Rating" typeRef="tRating" />
+      <output id="_6B85F8DD-4658-486A-98D5-48A5B7DAB16A" name="Forklaring" typeRef="string" />
       <annotation name="Annotations" />
       <rule id="_CBEF77C1-A41D-4EE5-BAF4-3C68838C4253">
         <inputEntry id="_5A79ECAE-33F5-4271-B631-8BE045506973">
@@ -26,16 +27,22 @@
         <outputEntry id="_5665DF1A-9926-4845-AD5B-C4F13AD463E8">
           <text>&quot;Gold&quot;</text>
         </outputEntry>
+        <outputEntry id="_61FBCF21-72AA-4574-99C8-CB985DEB1817">
+          <text>&quot;Fint&quot;</text>
+        </outputEntry>
         <annotationEntry>
-          <text>// Your annotations here</text>
+          <text></text>
         </annotationEntry>
       </rule>
       <rule id="_7AE55379-7FE2-40BB-8898-F1FCD05601D0">
         <inputEntry id="_A781F652-F9AF-422C-9865-550BAFDF3A6E">
-          <text>-</text>
+          <text>[100000..1000000]</text>
         </inputEntry>
         <outputEntry id="_895F2EB5-1EE6-4DA9-97F1-6E80E137EC9B">
-          <text></text>
+          <text>&quot;Silver&quot;</text>
+        </outputEntry>
+        <outputEntry id="_F5BAB8FC-D0A7-4F07-8CCB-833D23F8166E">
+          <text>&quot;Flott&quot;</text>
         </outputEntry>
         <annotationEntry>
           <text></text>
@@ -43,10 +50,13 @@
       </rule>
       <rule id="_6A0FFB9F-9AEF-4DCE-8581-5B7586DF5626">
         <inputEntry id="_AE43D62C-9FB7-4338-B99C-7B08021642AB">
-          <text>-</text>
+          <text>&lt;100000</text>
         </inputEntry>
         <outputEntry id="_F46D52D1-4E32-4212-99AE-953E03A83271">
-          <text></text>
+          <text>&quot;Standard&quot;</text>
+        </outputEntry>
+        <outputEntry id="_16FFB51B-9A3F-4AFD-A1E4-E7D630993661">
+          <text>&quot;Greit&quot;</text>
         </outputEntry>
         <annotationEntry>
           <text></text>
@@ -65,6 +75,7 @@
             <kie:width>60</kie:width>
             <kie:width>262</kie:width>
             <kie:width>201</kie:width>
+            <kie:width>100</kie:width>
             <kie:width>240</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
