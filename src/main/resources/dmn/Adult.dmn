@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_C08DCC59-3A65-423E-A365-749F42B8BFC2" id="_647F8DED-347B-478C-AC5A-6F4AF17B1CC1" name="DMN_EA24A70A-69CA-4356-8982-41A9DC5F3F97" xmlns:included0="https://kie.org/dmn/_7E5EC490-52EF-4056-91C8-AF9499165C35">
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" xmlns:included0="https://kie.org/dmn/_7E5EC490-52EF-4056-91C8-AF9499165C35" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_C08DCC59-3A65-423E-A365-749F42B8BFC2" id="_647F8DED-347B-478C-AC5A-6F4AF17B1CC1" name="DMN_EA24A70A-69CA-4356-8982-41A9DC5F3F97">
   <import id="_65A47414-C5F4-4325-A03A-076FFB00434C" name="ABC" importType="http://www.omg.org/spec/DMN/20180521/MODEL/" namespace="https://kie.org/dmn/_7E5EC490-52EF-4056-91C8-AF9499165C35" locationURI="./ABC.dmn" />
   <inputData name="Age" id="_5878F08F-571D-4429-AC43-1B4910AC5B88">
     <variable name="Age" id="_BD0861E7-75F7-4EFE-80C8-FACC596948B7" typeRef="number" />
@@ -9,8 +9,11 @@
     <informationRequirement id="_FA7A89FC-D551-478E-B0BB-DE53757EBC70">
       <requiredInput href="#_5878F08F-571D-4429-AC43-1B4910AC5B88" />
     </informationRequirement>
+    <informationRequirement id="_663F3CB9-0176-4103-994D-F8A71E77FDB4">
+      <requiredDecision href="https://kie.org/dmn/_7E5EC490-52EF-4056-91C8-AF9499165C35#_5F423E3B-9974-422D-B36B-972CEE50C453" />
+    </informationRequirement>
     <literalExpression id="_85757819-B4C8-4893-B21A-22C2726F975B" typeRef="boolean" label="Adult">
-      <text>if Age &gt;= 18 then true else false</text>
+      <text>if ABC.Category = &quot;Gold&quot; then true  else false</text>
     </literalExpression>
   </decision>
   <dmndi:DMNDI>
@@ -33,8 +36,12 @@
         <di:waypoint x="480" y="300" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="_79EEDA37-8CCF-4045-B82D-96618B4A1785" dmnElementRef="included0:_5F423E3B-9974-422D-B36B-972CEE50C453">
-        <dc:Bounds x="880" y="120" width="160" height="80" />
+        <dc:Bounds x="760" y="340" width="200" height="100" />
       </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_6BE841AC-3C7E-4F45-96D9-AE1EA36FCCA7" dmnElementRef="_663F3CB9-0176-4103-994D-F8A71E77FDB4" sourceElement="_79EEDA37-8CCF-4045-B82D-96618B4A1785" targetElement="_27BF41F7-2FE1-4A1D-9DC1-1250F1B39235">
+        <di:waypoint x="860" y="390" />
+        <di:waypoint x="480" y="300" />
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
 </definitions>
